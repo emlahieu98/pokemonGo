@@ -2,7 +2,6 @@ const DefaultState = {
   loading: false,
   data: {},
   errMsg: " ",
-  count: 0,
 };
 const PokemonReducer = (state = DefaultState, action) => {
   switch (action.type) {
