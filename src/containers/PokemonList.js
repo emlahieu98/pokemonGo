@@ -15,14 +15,22 @@ const PokemonList = (props) => {
   const fetchData = (page = 1) => {
     dispatch(GetPokemonList(page))
   }
+  const handelClickCatch = (name) => {
+    const isCatch = _.sample([true, false]);
+    if (!isCatch) {
+      alert("Catch fail, try again later");
+    } else {
+      alert(name);
+    }
+  };
   const showData = () => {
-    
     if (!_.isEmpty(pokemonList.data)) {
       return (<div className="list-wrapper">
         {pokemonList.data.map(item => {
           return (
             <div className="list-wrapper-item">
               <p>{item.name}</p>
+              <p onClick={(e) => handelClickCatch(item.name, e)}>Catch</p>
               <Link to={`/pokemon/${item.name}`}>View</Link>
             </div>
           );

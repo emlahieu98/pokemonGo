@@ -6,9 +6,11 @@ const Pokemon = (props) => {
   const pokemonName = props.match.params.id
   const dispatch = useDispatch();
   const pokemon = useSelector((state) => state.Pokemon);
+  
   useEffect(() => {
     dispatch(GetPokemon(pokemonName));
   }, []);
+
     const showData = () => {
       if (!_.isEmpty(pokemon.data[pokemonName])) {
         const pokemonItem = pokemon.data[pokemonName];

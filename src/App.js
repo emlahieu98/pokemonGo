@@ -22,10 +22,9 @@ function App() {
               <Link class="dropdown-item" to={`/profile`}>
                 Profile
               </Link>
-
-              <a class="dropdown-item" href="#">
+              <Link class="dropdown-item" to={`/login`}>
                 Logout
-              </a>
+              </Link>
             </div>
           </li>
         </NavLink>
