@@ -7,6 +7,8 @@ import ReactPaginate from "react-paginate";
 import { Button, Input } from "@material-ui/core";
 const PokemonList = (props) => {
   const [search, setSearch] = useState("")
+  let [count, setCount] = useState(0)
+  
   const dispatch = useDispatch()
   const pokemonList = useSelector(state => state.PokemonList)
   useEffect(() => {
@@ -15,12 +17,26 @@ const PokemonList = (props) => {
   const fetchData = (page = 1) => {
     dispatch(GetPokemonList(page))
   }
+  let i = 0
   const handelClickCatch = (name) => {
-    const isCatch = _.sample([true, false]);
+    const isCatch = _.sample([true, true]);
     if (!isCatch) {
       alert("Catch fail, try again later");
     } else {
-      alert(name);
+      //i += 1
+      //console.log('i-------: ', i)
+      //const newList = listPokemon + name
+      setCount(count++)
+      //setList(newList)
+      //localStorage.setItem("listPokemon", newList);
+      
+      console.log(
+        "arrrrrrrrrrrrrr",
+        count
+      );
+      props.setState(count)
+      //setList(listPokemon);
+      //alert(name);
     }
   };
   const showData = () => {
